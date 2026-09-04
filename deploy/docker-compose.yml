@@ -1,0 +1,12 @@
+services:
+  siyuan:
+    image: b3log/siyuan:v3.0.17
+    container_name: siyuan-vuln
+    ports:
+      - "8090:6806"
+    environment:
+      - TZ=Asia/Shanghai
+    command: --accessAuthCode=vulnerable123
+    volumes:
+      - ./siyuan-data:/home/siyuan/SiYuan
+    restart: unless-stopped
